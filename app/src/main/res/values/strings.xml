@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PraktikumKeempat</string>
+    <string name="app_name">Input Pengguna</string>
+    <string name="submit">submit</string>
 </resources>
