@@ -1,11 +1,13 @@
 package com.example.praktikumkeempat
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.selects.select
 
 @Composable
 fun FormDataDiri(modifier: Modifier) {
@@ -36,5 +38,22 @@ fun FormDataDiri(modifier: Modifier) {
                 textNama = it
             }
         )
+        Row {
+            gender.forEach { item ->
+                Row(modifier = Modifier.selectable(
+                    selected = textJK == item,
+
+                    onClick = {textJK = item}
+                ), verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton (
+                        selected = textJK == item,
+
+                        onClick = {
+                            textJK = item
+                        })
+                    Text(item)
+                }
+            }
+        }
     }
 }
