@@ -3,5 +3,5 @@ package com.example.praktikumkeempat
 import androidx.compose.runtime.Composable
 
 @Composable
-fun FormPendaftaran() {
+fun FormPendaftaran(modifier: Modifier = Modifier) {
 }
