@@ -1,5 +1,6 @@
 package com.example.praktikumkeempat
 
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 
 @Composable
@@ -16,4 +17,7 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
 
     val genderList = listOf("Laki-laki", "Perempuan")
     val statusList = listOf("Janda", "Lajang", "Duda")
+
+    Column(modifier = Modifier.fillMaxSize()) {
+    }
 }
