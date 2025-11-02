@@ -181,5 +181,3 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
         }
     }
 }
-
-aku disuruh nge commit sebanyak 15 kali bantu aku untuk ngebagiin ini sebanyak 15 kali nama + kodingannya agar pas aku commit tidak error
