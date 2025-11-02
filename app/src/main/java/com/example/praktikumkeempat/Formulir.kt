@@ -125,7 +125,6 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     }
                 }
 
-                // Spacer untuk jarak sebelum input alamat
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Input alamat lengkap
@@ -138,6 +137,27 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     shape = MaterialTheme.shapes.large,
                     modifier = Modifier.fillMaxWidth()
                 )
+
+                // Spacer sebelum tombol
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Tombol Submit
+                Button(
+                    onClick = {
+                        nama = textNama
+                        jenisKelamin = textJK
+                        statusPerkawinan = textStatus
+                        alamat = textAlamat
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp),
+                    shape = RoundedCornerShape(12.dp),
+                    enabled = textNama.isNotEmpty() && textJK.isNotEmpty() &&
+                            textStatus.isNotEmpty() && textAlamat.isNotEmpty()
+                ) {
+                    Text("Submit", color = Color.White, fontSize = 16.sp)
+                }
             }
         }
     }
