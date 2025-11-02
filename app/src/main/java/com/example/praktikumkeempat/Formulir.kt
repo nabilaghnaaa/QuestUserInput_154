@@ -40,6 +40,7 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                 color = Color.White,
                 modifier = Modifier.padding(start = 24.dp, bottom = 12.dp)
             )
+            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }
