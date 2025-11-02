@@ -85,7 +85,6 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
 
                 // Pilihan jenis kelamin
                 Text("JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
-
                 genderList.forEach { gender ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
@@ -101,6 +100,29 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                             onClick = { textJK = gender }
                         )
                         Text(gender)
+                    }
+                }
+
+                // Spacer biar ada jarak antara dua bagian
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Pilihan status perkawinan
+                Text("STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
+                statusList.forEach { status ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .selectable(
+                                selected = textStatus == status,
+                                onClick = { textStatus = status }
+                            )
+                            .padding(start = 8.dp, top = 4.dp)
+                    ) {
+                        RadioButton(
+                            selected = textStatus == status,
+                            onClick = { textStatus = status }
+                        )
+                        Text(status)
                     }
                 }
             }
