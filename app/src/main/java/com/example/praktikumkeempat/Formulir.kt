@@ -62,16 +62,29 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
         ) {
-            // Column isi form (masih kosong)
+            // Column isi form
             Column(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.Start
             ) {
+                // Label untuk nama lengkap
                 Text(
                     text = "NAMA LENGKAP",
                     fontWeight = FontWeight.SemiBold
+                )
+
+                // Input field untuk nama
+                OutlinedTextField(
+                    value = textNama,
+                    onValueChange = { textNama = it },
+                    label = { Text("Isian nama lengkap") },
+                    singleLine = true,
+                    shape = MaterialTheme.shapes.large,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 16.dp)
                 )
             }
         }
