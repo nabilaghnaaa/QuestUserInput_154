@@ -16,99 +16,110 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun FormPendaftaran(modifier: Modifier = Modifier) {
+
+    // variabel buat nyimpen inputan sementara dari user
     var textNama by remember { mutableStateOf("") }
     var textAlamat by remember { mutableStateOf("") }
     var textJK by remember { mutableStateOf("") }
     var textStatus by remember { mutableStateOf("") }
 
+    // variabel ini buat nampung data yang udah disubmit (hasil akhir)
     var nama by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var jenisKelamin by remember { mutableStateOf("") }
     var statusPerkawinan by remember { mutableStateOf("") }
 
+    // list pilihan buat radio button jenis kelamin
     val genderList = listOf("Laki-laki", "Perempuan")
+    // list pilihan buat status perkawinan
     val statusList = listOf("Janda", "Lajang", "Duda")
 
+    // tampilan utama pakai column biar ke bawah urut
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFFE6F6)),
+            .background(Color(0xFFFFE6F6)) // warna background pink muda
+            .padding(0.dp), // biar header nempel ke pinggir
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Header bagian atas
+        // bagian header (kotak warna pink tua di atas)
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(120.dp)
-                .background(Color(0xFFFFA6D8)),
-            contentAlignment = Alignment.BottomStart
+                .height(120.dp) // tinggi headernya
+                .background(Color(0xFFFFA6D8)), // warna pink lebih tua
+            contentAlignment = Alignment.BottomStart // teksnya di bawah kiri
         ) {
+            // teks judul di header
             Text(
                 text = "Formulir Pendaftaran",
-                fontSize = 26.sp,
+                fontSize = 26.sp, // ukuran huruf agak gede
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
-                modifier = Modifier.padding(start = 24.dp, bottom = 12.dp)
+                modifier = Modifier.padding(start = 24.dp, bottom = 12.dp) // jarak teks dari pinggir
             )
         }
 
-        // Jarak antar elemen
+        // jarak antara header sama card
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Card utama
+        // card utama yang isinya form input
         Card(
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(16.dp), // biar sudutnya ga kaku
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
+            colors = CardDefaults.cardColors(containerColor = Color.White), // warna putih di dalem card
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 16.dp) // jarak kanan kiri biar ga mepet layar
         ) {
-            // Column isi form
+            // isi dari form
             Column(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.Start
             ) {
-                // Input Nama
+                // label nama
                 Text("NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
                 OutlinedTextField(
                     value = textNama,
-                    onValueChange = { textNama = it },
+                    onValueChange = { textNama = it }, // kalo diketik langsung ke-update
                     label = { Text("Isian nama lengkap") },
-                    singleLine = true,
+                    singleLine = true, // cuma satu baris input
                     shape = MaterialTheme.shapes.large,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 16.dp)
                 )
 
-                // Pilihan jenis kelamin
+                // bagian jenis kelamin
                 Text("JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
-                genderList.forEach { gender ->
+                genderList.forEach { gender -> // looping tiap pilihan gender
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .selectable(
-                                selected = textJK == gender,
-                                onClick = { textJK = gender }
+                                selected = textJK == gender, // kalo ini yang dipilih, tandain
+                                onClick = { textJK = gender } // pas diklik ubah nilainya
                             )
                             .padding(start = 8.dp, top = 4.dp)
                     ) {
+                        // tombol radio
                         RadioButton(
                             selected = textJK == gender,
                             onClick = { textJK = gender }
                         )
+                        // teks di sebelah radio
                         Text(gender)
                     }
                 }
 
+                // jarak dikit biar ga dempet
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // Pilihan status perkawinan
+                // bagian status perkawinan
                 Text("STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
-                statusList.forEach { status ->
+                statusList.forEach { status -> // looping pilihan status
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
@@ -126,9 +137,10 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     }
                 }
 
+                // jarak lagi biar rapi
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Input alamat lengkap
+                // label dan kolom input alamat
                 Text("ALAMAT", fontWeight = FontWeight.SemiBold)
                 OutlinedTextField(
                     value = textAlamat,
@@ -139,11 +151,13 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     modifier = Modifier.fillMaxWidth()
                 )
 
+                // jarak sebelum tombol
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Tombol Submit dengan colorResource
+                // tombol submit
                 Button(
                     onClick = {
+                        // pas diklik tombolnya, data disimpan ke variabel hasil
                         nama = textNama
                         jenisKelamin = textJK
                         statusPerkawinan = textStatus
@@ -153,14 +167,13 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                         .fillMaxWidth()
                         .height(50.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = colorResource(id = R.color.blue_submit),
+                        containerColor = colorResource(id = R.color.blue_submit), // ambil warna dari colors.xml
                         contentColor = Color.White,
                         disabledContainerColor = colorResource(id = R.color.blue_submit),
                         disabledContentColor = Color.White
                     ),
-                    shape = RoundedCornerShape(12.dp),
-                    enabled = textNama.isNotEmpty() && textJK.isNotEmpty() &&
-                            textStatus.isNotEmpty() && textAlamat.isNotEmpty()
+                    shape = RoundedCornerShape(12.dp), // sudut tombolnya agak melengkung
+                    enabled = textNama.isNotEmpty() && textJK.isNotEmpty() && textStatus.isNotEmpty() && textAlamat.isNotEmpty() // tombol baru aktif kalo semua udah diisi
                 ) {
                     Text("Submit", color = Color.White, fontSize = 16.sp)
                 }
@@ -168,3 +181,5 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
         }
     }
 }
+
+aku disuruh nge commit sebanyak 15 kali bantu aku untuk ngebagiin ini sebanyak 15 kali nama + kodingannya agar pas aku commit tidak error
