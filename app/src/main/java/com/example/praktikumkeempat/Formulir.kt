@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -138,10 +139,9 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     modifier = Modifier.fillMaxWidth()
                 )
 
-                // Spacer sebelum tombol
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Tombol Submit
+                // Tombol Submit dengan colorResource
                 Button(
                     onClick = {
                         nama = textNama
@@ -152,6 +152,12 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(50.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = colorResource(id = R.color.blue_submit),
+                        contentColor = Color.White,
+                        disabledContainerColor = colorResource(id = R.color.blue_submit),
+                        disabledContentColor = Color.White
+                    ),
                     shape = RoundedCornerShape(12.dp),
                     enabled = textNama.isNotEmpty() && textJK.isNotEmpty() &&
                             textStatus.isNotEmpty() && textAlamat.isNotEmpty()
