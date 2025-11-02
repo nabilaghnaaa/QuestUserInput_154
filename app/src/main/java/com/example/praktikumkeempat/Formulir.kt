@@ -103,7 +103,6 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     }
                 }
 
-                // Spacer biar ada jarak antara dua bagian
                 Spacer(modifier = Modifier.height(12.dp))
 
                 // Pilihan status perkawinan
@@ -125,6 +124,20 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                         Text(status)
                     }
                 }
+
+                // Spacer untuk jarak sebelum input alamat
+                Spacer(modifier = Modifier.height(16.dp))
+
+                // Input alamat lengkap
+                Text("ALAMAT", fontWeight = FontWeight.SemiBold)
+                OutlinedTextField(
+                    value = textAlamat,
+                    onValueChange = { textAlamat = it },
+                    label = { Text("Isian alamat lengkap") },
+                    singleLine = true,
+                    shape = MaterialTheme.shapes.large,
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
         }
     }
