@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="padding_small">10dp</dimen>
-    <dimen name="padding_medium">30dp</dimen>
+    <!-- Konsistensi padding -->
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+
+    <!-- Tinggi header lebih besar biar proporsional -->
+    <dimen name="header_height">120dp</dimen>
+
+    <!-- Divider opsional -->
     <dimen name="divider_tipis">1dp</dimen>
 </resources>
