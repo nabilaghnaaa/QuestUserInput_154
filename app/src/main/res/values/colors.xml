@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Warna utama background halaman -->
+    <color name="background">#ECCEF5</color>
+
+    <!-- Warna header ungu terang -->
+    <color name="header_purple">#D8A8E8</color>
+
+    <!-- Warna putih dan hitam umum -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Warna tombol submit biru tegas sesuai instruksi -->
+    <color name="blue_submit">#1976D2</color>
+
+    <!-- Default warna tambahan -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 </resources>
