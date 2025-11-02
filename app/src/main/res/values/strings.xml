@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Input Pengguna</string>
-    <string name="submit">submit</string>
+    <string name="app_name">Formulir Pendaftaran</string>
+    <string name="submit">Submit</string>
+    <string name="form_title">Formulir Pendaftaran</string>
 </resources>
