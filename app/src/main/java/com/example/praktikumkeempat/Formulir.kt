@@ -2,6 +2,8 @@ package com.example.praktikumkeempat
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -10,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun FormPendaftaran(modifier: Modifier = Modifier) {
@@ -69,13 +70,8 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.Start
             ) {
-                // Label untuk nama lengkap
-                Text(
-                    text = "NAMA LENGKAP",
-                    fontWeight = FontWeight.SemiBold
-                )
-
-                // Input field untuk nama
+                // Input Nama
+                Text("NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
                 OutlinedTextField(
                     value = textNama,
                     onValueChange = { textNama = it },
@@ -86,6 +82,27 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
                         .fillMaxWidth()
                         .padding(bottom = 16.dp)
                 )
+
+                // Pilihan jenis kelamin
+                Text("JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
+
+                genderList.forEach { gender ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .selectable(
+                                selected = textJK == gender,
+                                onClick = { textJK = gender }
+                            )
+                            .padding(start = 8.dp, top = 4.dp)
+                    ) {
+                        RadioButton(
+                            selected = textJK == gender,
+                            onClick = { textJK = gender }
+                        )
+                        Text(gender)
+                    }
+                }
             }
         }
     }
