@@ -1,4 +1,3 @@
-// Commit 7: Tambah Spacer dan Card utama
 package com.example.praktikumkeempat
 
 import androidx.compose.foundation.background
@@ -11,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun FormPendaftaran(modifier: Modifier = Modifier) {
@@ -33,6 +33,7 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
             .background(Color(0xFFFFE6F6)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Header bagian atas
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -49,8 +50,10 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
             )
         }
 
+        // Jarak antar elemen
         Spacer(modifier = Modifier.height(24.dp))
 
+        // Card utama
         Card(
             shape = RoundedCornerShape(16.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
@@ -58,6 +61,19 @@ fun FormPendaftaran(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
-        ) {}
+        ) {
+            // Column isi form (masih kosong)
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.Start
+            ) {
+                Text(
+                    text = "NAMA LENGKAP",
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+        }
     }
 }
